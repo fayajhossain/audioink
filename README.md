@@ -3,6 +3,9 @@
 > **Airgapped, On-Device AI Voice Notepad & Structured Note Synthesizer**  
 > Private, hardware-encrypted speech-to-text and grounded LLM note extraction running 100% locally on your phone.
 
+📖 **Looking for the Engineering Case Study & Interview Guide?**  
+Check out the **[AudioInk Mobile Engineering Masterclass & Interview Guide](DEVELOPER_GUIDE.md)** for a complete from-scratch build blueprint, React Native New Architecture internals (JSI, Fabric, TurboModules, Hermes Hades GC), and answers to top senior mobile engineer interview questions.
+
 ---
 
 ## 🌟 Key Features
