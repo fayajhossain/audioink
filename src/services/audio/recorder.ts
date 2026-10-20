@@ -1,6 +1,7 @@
 import { Platform } from 'react-native';
 import { getRecordingAudioPath } from '../storage/audio-storage';
 import { insertPause, updateRecordingStatus } from '../storage/database';
+import { logger } from '../logger';
 
 export type AudioChunkHandler = (pcmChunk: Float32Array, sampleOffset: number) => void;
 export type LiveTranscriptHandler = (committedText: string, nonCommittedText: string) => void;
@@ -81,17 +82,19 @@ export async function startRecordingSession(
       );
 
       session.audioRecorder.onError((err: any) => {
-        console.error('[Recorder] Audio recording error:', err);
+        logger.error('AudioRecorder', 'Native recording error callback triggered:', err?.message || err);
         if (onError) onError(new Error(err?.message || 'Recording error'));
       });
 
       await session.audioRecorder.start();
+      logger.info('AudioRecorder', `Native 16kHz audio capture started for session ${recordingId}`);
     } catch (err: any) {
       activeSession = null;
+      logger.fatal('AudioRecorder', 'Failed to start native audio recorder:', err?.message || err);
       throw new Error(`Failed to start native audio recorder: ${err?.message || err}`);
     }
   } else {
-    console.log('[Recorder] Development/Simulated recording session started for:', recordingId);
+    logger.info('AudioRecorder', `Development simulated recording session started for: ${recordingId}`);
   }
 
   return audioPath;

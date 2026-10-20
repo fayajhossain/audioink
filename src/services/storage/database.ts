@@ -2,6 +2,7 @@ import * as SQLite from 'expo-sqlite';
 import { getOrCreateDatabaseEncryptionKey } from './secure-store';
 import { deleteAudioFile } from './audio-storage';
 import { AudioPause, Recording, StructuredNote, TranscriptSegment } from '../../types/recording';
+import { logger } from '../logger';
 
 let dbInstance: SQLite.SQLiteDatabase | null = null;
 let dbInitPromise: Promise<SQLite.SQLiteDatabase> | null = null;
@@ -10,8 +11,8 @@ function safeJsonParse<T>(jsonString: string | null | undefined, fallback: T): T
   if (!jsonString) return fallback;
   try {
     return JSON.parse(jsonString) as T;
-  } catch (e) {
-    console.warn('[Database] JSON parse failed, returning fallback:', e);
+  } catch (e: any) {
+    logger.warn('Database', 'JSON parse failed, returning fallback:', e?.message);
     return fallback;
   }
 }
@@ -25,6 +26,7 @@ export async function getDatabase(): Promise<SQLite.SQLiteDatabase> {
   }
 
   dbInitPromise = (async () => {
+    logger.info('Database', 'Initializing SQLite database connection...');
     const key = await getOrCreateDatabaseEncryptionKey();
     const db = await SQLite.openDatabaseAsync('audioink.db');
 
@@ -36,12 +38,13 @@ export async function getDatabase(): Promise<SQLite.SQLiteDatabase> {
         const sanitizedKey = key.replace(/[^0-9a-fA-F]/g, '');
         if (sanitizedKey.length > 0) {
           await db.execAsync(`PRAGMA key = '${sanitizedKey}';`);
+          logger.info('Database', `SQLCipher active (v${cipherCheck.cipher_version}), AES-256 key applied.`);
         }
       } else {
-        console.warn('[Database] Running without SQLCipher (development build or Expo Go fallback).');
+        logger.warn('Database', 'Running without SQLCipher (development build or Expo Go fallback).');
       }
-    } catch {
-      console.warn('[Database] SQLCipher check encountered an exception; continuing.');
+    } catch (err: any) {
+      logger.error('Database', 'SQLCipher check encountered an exception; continuing.', err?.message);
     }
 
     // WAL journal mode for performance and foreign keys for cascade deletes

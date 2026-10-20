@@ -10,10 +10,12 @@ import {
   StatusBar,
   useColorScheme,
   Alert,
+  Modal,
 } from 'react-native';
 import { router } from 'expo-router';
 import { Colors, Fonts } from '@/constants/theme';
 import { getAvailableStorageBytes } from '@/services/storage/audio-storage';
+import { readPersistentLogFile, clearAllLogs, logger } from '@/services/logger';
 import * as LocalAuthentication from 'expo-local-authentication';
 
 export default function SettingsPrivacyVaultScreen() {
@@ -23,6 +25,8 @@ export default function SettingsPrivacyVaultScreen() {
 
   const [biometricsEnabled, setBiometricsEnabled] = useState(false);
   const [hasBiometricHardware, setHasBiometricHardware] = useState(false);
+  const [logsModalVisible, setLogsModalVisible] = useState(false);
+  const [activeLogs, setActiveLogs] = useState('');
   const [availableGb] = useState(() => {
     const bytes = getAvailableStorageBytes();
     if (bytes > 0 && bytes !== Number.MAX_SAFE_INTEGER) {
@@ -30,6 +34,19 @@ export default function SettingsPrivacyVaultScreen() {
     }
     return '42.8'; // Typical phone storage representation
   });
+
+  const handleOpenLogs = async () => {
+    logger.info('Settings', 'User opened diagnostic logs viewer.');
+    const content = await readPersistentLogFile();
+    setActiveLogs(content || 'No diagnostic logs recorded yet.');
+    setLogsModalVisible(true);
+  };
+
+  const handleClearLogs = async () => {
+    await clearAllLogs();
+    setActiveLogs('Logs cleared.');
+    Alert.alert('Logs Cleared', 'In-memory and disk diagnostic logs have been wiped.');
+  };
 
   useEffect(() => {
     let isMounted = true;
@@ -179,7 +196,29 @@ export default function SettingsPrivacyVaultScreen() {
           ))}
         </View>
 
-        {/* 4. Cache & Data Controls */}
+        {/* 4. Diagnostics & Crash Logs */}
+        <View style={[styles.card, { backgroundColor: colors.surfaceContainer }]}>
+          <Text style={[styles.cardTitle, { color: colors.primary }]}>Testing Diagnostics & Logs</Text>
+          <Text style={[styles.rowSub, { color: colors.outline, marginBottom: 12 }]}>
+            Structured crash logs and lifecycle events are stored locally on-device.
+          </Text>
+
+          <View style={styles.diagBtnRow}>
+            <TouchableOpacity
+              style={[styles.diagBtn, { backgroundColor: colors.primaryContainer }]}
+              onPress={handleOpenLogs}>
+              <Text style={styles.diagBtnText}>📋 View Diagnostic Logs</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={[styles.diagBtnSecondary, { backgroundColor: colors.surfaceContainerHigh }]}
+              onPress={handleClearLogs}>
+              <Text style={[styles.diagBtnTextSec, { color: colors.outline }]}>Clear Logs</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+
+        {/* 5. Cache & Data Controls */}
         <View style={styles.actionsBox}>
           <TouchableOpacity
             style={[styles.purgeBtn, { backgroundColor: colors.surfaceContainer }]}
@@ -188,6 +227,27 @@ export default function SettingsPrivacyVaultScreen() {
           </TouchableOpacity>
         </View>
       </ScrollView>
+
+      {/* Diagnostic Logs Inspection Modal */}
+      <Modal
+        visible={logsModalVisible}
+        animationType="slide"
+        presentationStyle="pageSheet"
+        onRequestClose={() => setLogsModalVisible(false)}>
+        <SafeAreaView style={[styles.modalSafe, { backgroundColor: colors.background }]}>
+          <View style={[styles.modalHeader, { borderBottomColor: colors.outlineVariant }]}>
+            <Text style={[styles.modalTitle, { color: colors.text }]}>Diagnostic & Crash Logs</Text>
+            <TouchableOpacity onPress={() => setLogsModalVisible(false)}>
+              <Text style={{ color: colors.primary, fontSize: 16, fontWeight: '600' }}>Done</Text>
+            </TouchableOpacity>
+          </View>
+          <ScrollView style={styles.modalScroll} contentContainerStyle={{ padding: 16 }}>
+            <Text style={[styles.logMonospaceText, { color: colors.text }]}>
+              {activeLogs}
+            </Text>
+          </ScrollView>
+        </SafeAreaView>
+      </Modal>
     </SafeAreaView>
   );
 }
@@ -334,6 +394,57 @@ const styles = StyleSheet.create({
   purgeBtnText: {
     fontSize: 13,
     fontWeight: '600',
+  },
+  diagBtnRow: {
+    flexDirection: 'row',
+    gap: 10,
+    marginTop: 4,
+  },
+  diagBtn: {
+    flex: 1,
+    paddingVertical: 12,
+    borderRadius: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  diagBtnText: {
+    color: '#ffffff',
+    fontSize: 12,
+    fontWeight: '600',
+  },
+  diagBtnSecondary: {
+    paddingHorizontal: 14,
+    paddingVertical: 12,
+    borderRadius: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  diagBtnTextSec: {
+    fontSize: 12,
+    fontWeight: '500',
+  },
+  modalSafe: {
+    flex: 1,
+  },
+  modalHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: 20,
+    paddingVertical: 16,
+    borderBottomWidth: 1,
+  },
+  modalTitle: {
+    fontSize: 16,
+    fontWeight: '600',
+  },
+  modalScroll: {
+    flex: 1,
+  },
+  logMonospaceText: {
+    fontSize: 11,
+    fontFamily: Fonts?.mono || 'monospace',
+    lineHeight: 18,
   },
 });
 

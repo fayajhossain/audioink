@@ -476,3 +476,4 @@ In AudioInk, because we only correct words with an edit distance of **exactly 1*
 > 1. **Prompt Grounding**: The input prompt assigns unique IDs to each transcript segment (`[s1]`, `[s2]`) and instructs the model to return structured JSON where every summary point includes a `src` array referencing only the segment IDs that justify the claim.  
 > 2. **Structural Schema Validation**: We parse and validate the JSON AST, rejecting malformed responses.  
 > 3. **Deterministic Entity / Fact Verification**: We extract high-risk hallucination targets (numbers, dates, metrics) via regex from the generated summary and verify that the exact tokens appear within the cited source segments. Any ungrounded fact is surfaced to the user via an "Unverified Claims" inspection banner.
+

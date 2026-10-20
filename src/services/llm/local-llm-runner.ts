@@ -2,6 +2,7 @@ import { Platform } from 'react-native';
 import { Persona, RecordingType } from '../../types/fidelity';
 import { StructuredNote, TranscriptSegment } from '../../types/recording';
 import { generateStructuredNote } from './note-generator';
+import { logger } from '../logger';
 
 export interface LocalLLMProgress {
   stage: 'downloading' | 'loading' | 'generating' | 'verifying' | 'done';
@@ -30,6 +31,7 @@ export async function runLocalLLMNoteGeneration(
   if (Platform.OS !== 'web') {
     try {
       onProgress?.({ stage: 'loading' });
+      logger.info('LocalLLM', 'Loading ExecuTorch LLM session (Llama 3.2 1B)...');
       /* eslint-disable-next-line @typescript-eslint/no-require-imports */
       const { models, createLLMChatSession } = require('react-native-executorch');
 
@@ -44,14 +46,18 @@ export async function runLocalLLMNoteGeneration(
             maxNewTokens: 1024,
           },
         });
+        logger.info('LocalLLM', 'Native LLM session initialized successfully.');
+      } else {
+        logger.warn('LocalLLM', 'ExecuTorch modelConfig or createLLMChatSession unavailable; using simulated engine.');
       }
-    } catch (err) {
-      console.warn('[LocalLLM] Native ExecuTorch LLM session not loaded (development mode):', err);
+    } catch (err: any) {
+      logger.warn('LocalLLM', 'Native ExecuTorch LLM session failed to load:', err?.message || err);
     }
   }
 
   try {
     onProgress?.({ stage: 'generating' });
+    logger.info('LocalLLM', `Generating structured note for recording ${recordingId} (segments: ${segments.length})`);
 
     // Custom runner adapter to forward streaming tokens
     const runner = session
@@ -77,16 +83,25 @@ export async function runLocalLLMNoteGeneration(
       'Llama-3.2-1B-Instruct'
     );
 
+    if (note.unverifiedClaims && note.unverifiedClaims.length > 0) {
+      logger.warn('LocalLLM', `Grounding verification flagged ${note.unverifiedClaims.length} unverified claim(s).`, note.unverifiedClaims);
+    } else {
+      logger.info('LocalLLM', 'All claims 100% grounded against transcript segments.');
+    }
+
     onProgress?.({ stage: 'done' });
     return note;
+  } catch (genError: any) {
+    logger.error('LocalLLM', 'Error during LLM note generation:', genError?.message || genError);
+    throw genError;
   } finally {
     // Crucial: Free native memory when note generation completes
     if (session && typeof session.dispose === 'function') {
       try {
         session.dispose();
-        console.log('[LocalLLM] Native LLM session successfully disposed from RAM.');
-      } catch (e) {
-        console.warn('[LocalLLM] Error disposing LLM session:', e);
+        logger.info('LocalLLM', 'Native LLM session successfully disposed from RAM to prevent OOM.');
+      } catch (e: any) {
+        logger.warn('LocalLLM', 'Error disposing LLM session:', e?.message || e);
       }
     }
   }

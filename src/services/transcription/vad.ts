@@ -1,6 +1,7 @@
 import { AudioPause, TranscriptSegment } from '../../types/recording';
 import { insertPause, updateRecordingStatus } from '../storage/database';
 import { runFinalTranscriptionPass, VADSpeechSegment } from './whisper';
+import { logger } from '../logger';
 
 export interface VADAnalysisResult {
   speechSegments: VADSpeechSegment[];
@@ -136,9 +137,10 @@ export async function runVoiceActivityDetection(
         }
       }
 
+      logger.info('VAD', `Native VAD detected ${speechSegments.length} speech segments, ${pauses.length} pauses.`);
       return { speechSegments, pauses };
-    } catch (e) {
-      console.warn('[VAD] Native VAD error, falling back to energy VAD:', e);
+    } catch (e: any) {
+      logger.warn('VAD', 'Native VAD error, falling back to energy VAD:', e?.message || e);
     }
   }
 
@@ -148,6 +150,7 @@ export async function runVoiceActivityDetection(
     p.recordingId = recordingId;
     p.id = `pause_${recordingId}_${p.startMs}`;
   });
+  logger.info('VAD', `Energy-based VAD detected ${result.speechSegments.length} speech segments, ${result.pauses.length} pauses.`);
 
   return result;
 }

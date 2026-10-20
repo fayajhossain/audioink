@@ -1,5 +1,6 @@
 import { TranscriptSegment } from '../../types/recording';
 import { insertSegment } from '../storage/database';
+import { logger } from '../logger';
 
 export interface LiveTranscriptionController {
   feedChunk: (chunk: Float32Array, sampleOffset: number) => void;
@@ -58,8 +59,8 @@ export function createLiveWhisperStream(
             onDraftUpdate(committedSoFar, currentNonCommitted);
           }
         }
-      } catch (err) {
-        console.warn('[WhisperStream] Live streaming generator error:', err);
+      } catch (err: any) {
+        logger.error('WhisperStream', 'Live streaming generator error:', err?.message || err);
       }
     })();
   }
@@ -140,8 +141,8 @@ export async function runFinalTranscriptionPass(
         try {
           const res = await whisperModel.transcribe(slice);
           transcribedText = typeof res === 'string' ? res : (res?.text || '');
-        } catch (err) {
-          console.error(`[WhisperFinal] Failed to transcribe segment ${segmentCounter}:`, err);
+        } catch (err: any) {
+          logger.error('WhisperFinal', `Failed to transcribe segment ${segmentCounter}:`, err?.message || err);
         }
       } else {
         // Fallback for simulation / mock testing
