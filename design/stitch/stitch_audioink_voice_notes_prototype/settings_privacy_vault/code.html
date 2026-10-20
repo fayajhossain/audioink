@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "on-primary-container": "#0d0096",
+          "on-background": "#e4e1e6",
+          "on-secondary": "#233143",
+          "on-secondary-container": "#a7b6cc",
+          "on-error": "#690005",
+          "on-primary-fixed": "#07006c",
+          "surface-tint": "#c0c1ff",
+          "primary-fixed": "#e1e0ff",
+          "on-tertiary-fixed": "#1a1b22",
+          "tertiary-container": "#909099",
+          "tertiary-fixed-dim": "#c6c6cf",
+          "on-secondary-fixed": "#0d1c2d",
+          "tertiary": "#c6c6cf",
+          "surface-container-lowest": "#0e0e11",
+          "surface-container": "#1f1f22",
+          "secondary": "#b9c8de",
+          "on-surface-variant": "#9a99a8",
+          "secondary-container": "#39485a",
+          "on-tertiary": "#2f3037",
+          "primary-fixed-dim": "#c0c1ff",
+          "surface-bright": "#39393c",
+          "on-error-container": "#ffdad6",
+          "on-tertiary-fixed-variant": "#45464e",
+          "on-surface": "#e4e1e6",
+          "outline-variant": "#2f3038",
+          "surface-container-low": "#18181b",
+          "error": "#ffb4ab",
+          "error-container": "#93000a",
+          "secondary-fixed-dim": "#b9c8de",
+          "on-primary": "#1000a9",
+          "background": "#121214",
+          "secondary-fixed": "#d4e4fa",
+          "on-primary-fixed-variant": "#2f2ebe",
+          "tertiary-fixed": "#e2e1eb",
+          "surface-dim": "#121214",
+          "primary-container": "#8083ff",
+          "outline": "#4b4a55",
+          "surface-container-high": "#26262b",
+          "inverse-primary": "#494bd6",
+          "surface-variant": "#2d2d33",
+          "on-tertiary-container": "#282930",
+          "surface-container-highest": "#333339",
+          "on-secondary-fixed-variant": "#39485a",
+          "surface": "#121214",
+          "inverse-surface": "#e4e1e6",
+          "primary": "#c0c1ff",
+          "inverse-on-surface": "#303033"
+        },
+        "fontFamily": {
+          "sans": ["Inter", "sans-serif"],
+          "serif": ["Newsreader", "serif"]
+        }
+      }
+    }
+  };
+</script><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head><body class="bg-surface font-sans text-on-surface flex flex-col min-h-screen antialiased selection:bg-primary-container selection:text-white"><header class="fixed top-0 inset-x-0 z-50 bg-surface/85 backdrop-blur-md pt-safe border-b border-outline-variant/40"><div class="h-16 px-5 flex items-center justify-between gap-3"><div class="flex items-center gap-3 shrink-0"><img alt="AudioInk Brand Mark" class="h-7 w-auto object-contain opacity-95" src="https://lh3.googleusercontent.com/aida/AEtjO1VtTQVuSIT-I6vYFYU3WdvgwgVecayPKslK8U8uT2zWwytVRepUXFt6zZ3nIJqv9zhn1G4RfTlXVu_6dr3ahfHRpyPfsh4OJB1QNkBvydb1QjYRRTzZqv-7n0yB1xsr2EuwjLuviH10-tL9Y0gmNl4RRsJp49H_2iolf4cDrbMmUojcL2QJjcWkE4ijlfw6PKzkxIFOl65rHtozhvyCoTiz0uNT_U6ci4ddg2Pkqi6F6EHda5p8JwCydPQ"/><div class="flex flex-col"><span class="text-[17px] font-medium tracking-tight text-on-surface">AudioInk</span><span class="text-xs text-on-surface-variant font-normal tracking-wide">Privacy &amp; Vault</span></div></div><div class="flex items-center justify-end shrink-0"><button class="w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant/60 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">person</span></button></div></div></header><main class="flex flex-col relative w-full px-5 pt-20 pb-28 bg-surface min-h-screen"><div class="flex flex-col w-full max-w-lg mx-auto space-y-6">
+<!-- 1. Top Simple Status Banner -->
+<div class="bg-surface-container-low border border-outline-variant/50 rounded-2xl p-5 transition-all">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-xl bg-surface-container-high border border-outline-variant/40 flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[22px]">shield</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="text-base font-medium text-on-surface">Airgapped &amp; Private</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium bg-primary/10 text-primary border border-primary/20">Active</span>
+</div>
+<p class="text-sm text-on-surface-variant mt-1 leading-relaxed">All processing occurs strictly on your device. Audio and transcripts never leave this phone.</p>
+</div>
+</div>
+</div>
+<!-- 2. Security Section -->
+<div class="flex flex-col space-y-3">
+<h2 class="text-xs font-semibold uppercase tracking-wider text-on-surface-variant px-1">Security &amp; Encryption</h2>
+<div class="bg-surface-container-low border border-outline-variant/50 rounded-2xl divide-y divide-outline-variant/40 overflow-hidden">
+<!-- Biometric Lock -->
+<div class="flex items-center justify-between gap-4 p-4">
+<div class="flex items-center gap-3.5 min-w-0">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-on-surface shrink-0">
+<span class="material-symbols-outlined text-[20px]">fingerprint</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="text-sm font-medium text-on-surface">Biometric Lock</span>
+<span class="text-xs text-on-surface-variant">Require Face ID or passcode to unlock</span>
+</div>
+</div>
+<button aria-checked="true" class="relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full bg-primary-container/80 transition-colors duration-200 ease-in-out focus:outline-none" id="toggle-biometrics" role="switch" type="button">
+<span class="translate-x-5 pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow-sm ring-0 transition duration-200 ease-in-out mt-0.5 ml-0.5" id="toggle-thumb"></span>
+</button>
+</div>
+<!-- Encrypted Storage (AES-256) -->
+<div class="flex items-center justify-between gap-4 p-4">
+<div class="flex items-center gap-3.5 min-w-0">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-on-surface shrink-0">
+<span class="material-symbols-outlined text-[20px]">lock</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="text-sm font-medium text-on-surface">Encrypted Storage</span>
+<span class="text-xs text-on-surface-variant">Sealed with device-level AES-256 keys</span>
+</div>
+</div>
+<span class="text-xs font-medium text-primary px-2.5 py-1 rounded-md bg-surface-container-high border border-outline-variant/40 shrink-0">Enabled</span>
+</div>
+<!-- Telemetry Indicator -->
+<div class="flex items-center justify-between gap-4 p-4">
+<div class="flex items-center gap-3.5 min-w-0">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-on-surface-variant shrink-0">
+<span class="material-symbols-outlined text-[20px]">signal_cellular_off</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="text-sm font-medium text-on-surface">Telemetry &amp; Crash Reports</span>
+<span class="text-xs text-on-surface-variant">Network transmission is fully blocked</span>
+</div>
+</div>
+<span class="text-xs font-medium text-on-surface-variant px-2.5 py-1 rounded-md bg-surface-container-high border border-outline-variant/40 shrink-0">Off</span>
+</div>
+</div>
+</div>
+<!-- 3. Storage Section -->
+<div class="flex flex-col space-y-3">
+<div class="flex items-center justify-between px-1">
+<h2 class="text-xs font-semibold uppercase tracking-wider text-on-surface-variant">Device Storage</h2>
+<span class="text-xs text-on-surface-variant">1.7 GB of 86 GB used</span>
+</div>
+<div class="bg-surface-container-low border border-outline-variant/50 rounded-2xl p-4 sm:p-5 space-y-4">
+<!-- Minimal Progress Bar -->
+<div class="space-y-2.5">
+<div class="h-2 w-full bg-surface-container-high rounded-full overflow-hidden flex">
+<div class="h-full bg-primary" style="width: 14%;" title="AI Models"></div>
+<div class="h-full bg-secondary" style="width: 5%;" title="Audio Recordings"></div>
+<div class="h-full bg-surface-variant flex-1" title="Available"></div>
+</div>
+<!-- Clean Legend Labels -->
+<div class="flex flex-wrap items-center gap-y-2 gap-x-5 text-xs text-on-surface-variant pt-1">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary shrink-0"></span>
+<span>Models: 1.4 GB</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary shrink-0"></span>
+<span>Audio Notes: 312 MB</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-outline shrink-0"></span>
+<span>Available: 84 GB</span>
+</div>
+</div>
+</div>
+<!-- Calm Outline Action Buttons -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2 border-t border-outline-variant/40">
+<button class="flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-xl border border-outline-variant/60 bg-surface-container-low hover:bg-surface-container text-on-surface text-xs font-medium transition-colors" id="purge-btn" type="button">
+<span class="material-symbols-outlined text-[17px] text-on-surface-variant">cleaning_services</span>
+<span>Clear Audio Cache</span>
+</button>
+<button class="flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-xl border border-outline-variant/60 bg-surface-container-low hover:bg-surface-container text-on-surface text-xs font-medium transition-colors" id="export-vault-btn" type="button">
+<span class="material-symbols-outlined text-[17px] text-on-surface-variant">ios_share</span>
+<span>Export Notes (.zip)</span>
+</button>
+</div>
+</div>
+</div>
+<!-- 4. Offline AI Models Section -->
+<div class="flex flex-col space-y-3">
+<div class="flex items-center justify-between px-1">
+<h2 class="text-xs font-semibold uppercase tracking-wider text-on-surface-variant">On-Device Models</h2>
+<span class="text-xs text-on-surface-variant">3 Installed</span>
+</div>
+<div class="bg-surface-container-low border border-outline-variant/50 rounded-2xl divide-y divide-outline-variant/40 overflow-hidden">
+<!-- Model 1: Transcription - Whisper -->
+<div class="p-4 flex items-center justify-between gap-3">
+<div class="flex flex-col min-w-0">
+<span class="text-sm font-medium text-on-surface">Transcription · Whisper</span>
+<span class="text-xs text-on-surface-variant mt-0.5">High-speed on-device speech-to-text</span>
+<span class="text-[11px] text-outline mt-1">145 MB</span>
+</div>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-surface-container-high border border-outline-variant/50 text-on-surface shrink-0">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+        Installed
+      </span>
+</div>
+<!-- Model 2: Note Assistant - Llama 3.2 -->
+<div class="p-4 flex items-center justify-between gap-3">
+<div class="flex flex-col min-w-0">
+<span class="text-sm font-medium text-on-surface">Note Assistant · Llama 3.2</span>
+<span class="text-xs text-on-surface-variant mt-0.5">Summary generation and key insights</span>
+<span class="text-[11px] text-outline mt-1">1.2 GB</span>
+</div>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-surface-container-high border border-outline-variant/50 text-on-surface shrink-0">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+        Ready
+      </span>
+</div>
+<!-- Model 3: Privacy Filter -->
+<div class="p-4 flex items-center justify-between gap-3">
+<div class="flex flex-col min-w-0">
+<span class="text-sm font-medium text-on-surface">Privacy Filter</span>
+<span class="text-xs text-on-surface-variant mt-0.5">Scrubs personal info before saving</span>
+<span class="text-[11px] text-outline mt-1">84 MB</span>
+</div>
+<button class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg border border-outline-variant/60 hover:bg-surface-container text-xs font-medium text-on-surface transition-colors shrink-0" id="dl-pii-btn" type="button">
+<span class="material-symbols-outlined text-[15px]">download</span>
+<span>Download</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Minimal Toast Notification -->
+<div class="fixed bottom-20 left-1/2 -translate-x-1/2 bg-surface-container-highest border border-outline-variant/60 text-on-surface px-4 py-2 rounded-full text-xs font-medium shadow-lg flex items-center gap-2 opacity-0 pointer-events-none transition-opacity duration-200 z-40" id="toast-vault">
+<span class="material-symbols-outlined text-primary text-[17px]">check</span>
+<span id="toast-text">Cache cleared safely</span>
+</div>
+<script>
+  (function() {
+    const biometricsBtn = document.getElementById('toggle-biometrics');
+    const biometricsThumb = document.getElementById('toggle-thumb');
+    let biometricsActive = true;
+
+    if (biometricsBtn && biometricsThumb) {
+      biometricsBtn.addEventListener('click', () => {
+        biometricsActive = !biometricsActive;
+        biometricsBtn.setAttribute('aria-checked', String(biometricsActive));
+        if (biometricsActive) {
+          biometricsBtn.classList.remove('bg-surface-container-high');
+          biometricsBtn.classList.add('bg-primary-container/80');
+          biometricsThumb.classList.add('translate-x-5');
+          biometricsThumb.classList.remove('translate-x-0');
+          showToast('Biometric lock enabled');
+        } else {
+          biometricsBtn.classList.remove('bg-primary-container/80');
+          biometricsBtn.classList.add('bg-surface-container-high');
+          biometricsThumb.classList.remove('translate-x-5');
+          biometricsThumb.classList.add('translate-x-0');
+          showToast('Biometric lock turned off');
+        }
+      });
+    }
+
+    const purgeBtn = document.getElementById('purge-btn');
+    if (purgeBtn) {
+      purgeBtn.addEventListener('click', () => {
+        showToast('Audio cache cleared (312 MB freed)');
+      });
+    }
+
+    const exportBtn = document.getElementById('export-vault-btn');
+    if (exportBtn) {
+      exportBtn.addEventListener('click', () => {
+        showToast('Notes export started');
+      });
+    }
+
+    const dlBtn = document.getElementById('dl-pii-btn');
+    if (dlBtn) {
+      dlBtn.addEventListener('click', () => {
+        dlBtn.innerHTML = '<span class="material-symbols-outlined text-[15px] animate-spin">refresh</span><span>Downloading...</span>';
+        setTimeout(() => {
+          dlBtn.outerHTML = '<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-surface-container-high border border-outline-variant/50 text-on-surface shrink-0"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span>Installed</span>';
+          showToast('Privacy Filter installed');
+        }, 1200);
+      });
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast-vault');
+      const text = document.getElementById('toast-text');
+      if (!toast || !text) return;
+      text.textContent = msg;
+      toast.classList.remove('opacity-0', 'pointer-events-none');
+      toast.classList.add('opacity-100');
+      setTimeout(() => {
+        toast.classList.remove('opacity-100');
+        toast.classList.add('opacity-0', 'pointer-events-none');
+      }, 2200);
+    }
+  })();
+</script></main><nav class="fixed bottom-0 inset-x-0 z-50 pb-safe bg-surface/85 backdrop-blur-md border-t border-outline-variant/40" data-active-classes="text-primary font-medium"><div class="flex justify-around items-center h-16 px-2"><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] gap-1 text-on-surface-variant hover:text-on-surface transition-colors" data-path="record" href="#"><span class="material-symbols-outlined text-[22px]">mic</span><span class="text-[11px] tracking-tight">Record</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] gap-1 text-on-surface-variant hover:text-on-surface transition-colors" data-path="transcript" href="#"><span class="material-symbols-outlined text-[22px]">graphic_eq</span><span class="text-[11px] tracking-tight">Transcript</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] gap-1 text-on-surface-variant hover:text-on-surface transition-colors" data-path="notes" href="#"><span class="material-symbols-outlined text-[22px]">article</span><span class="text-[11px] tracking-tight">Notes</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] gap-1 text-on-surface-variant hover:text-on-surface transition-colors" data-path="personas" href="#"><span class="material-symbols-outlined text-[22px]">tune</span><span class="text-[11px] tracking-tight">Personas</span></a><a aria-current="page" class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] gap-1 text-primary font-medium transition-colors" data-path="vault" href="#"><span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">shield</span><span class="text-[11px] tracking-tight">Vault</span></a></div></nav></body></html>

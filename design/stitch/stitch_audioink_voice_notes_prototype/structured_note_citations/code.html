@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "on-primary-container": "#0d0096",
+          "on-background": "#e4e1e6",
+          "on-secondary": "#233143",
+          "on-secondary-container": "#a7b6cc",
+          "on-error": "#690005",
+          "on-primary-fixed": "#07006c",
+          "surface-tint": "#c0c1ff",
+          "primary-fixed": "#e1e0ff",
+          "on-tertiary-fixed": "#1a1b22",
+          "tertiary-container": "#909099",
+          "tertiary-fixed-dim": "#c6c6cf",
+          "on-secondary-fixed": "#0d1c2d",
+          "tertiary": "#c6c6cf",
+          "surface-container-lowest": "#0e0e11",
+          "surface-container": "#1f1f22",
+          "secondary": "#b9c8de",
+          "on-surface-variant": "#c7c4d7",
+          "secondary-container": "#39485a",
+          "on-tertiary": "#2f3037",
+          "primary-fixed-dim": "#c0c1ff",
+          "surface-bright": "#39393c",
+          "on-error-container": "#ffdad6",
+          "on-tertiary-fixed-variant": "#45464e",
+          "on-surface": "#e4e1e6",
+          "outline-variant": "#464554",
+          "surface-container-low": "#1b1b1e",
+          "error": "#ffb4ab",
+          "error-container": "#93000a",
+          "secondary-fixed-dim": "#b9c8de",
+          "on-primary": "#1000a9",
+          "background": "#131316",
+          "secondary-fixed": "#d4e4fa",
+          "on-primary-fixed-variant": "#2f2ebe",
+          "tertiary-fixed": "#e2e1eb",
+          "surface-dim": "#131316",
+          "primary-container": "#8083ff",
+          "outline": "#908fa0",
+          "surface-container-high": "#2a2a2d",
+          "inverse-primary": "#494bd6",
+          "surface-variant": "#353438",
+          "on-tertiary-container": "#282930",
+          "surface-container-highest": "#353438",
+          "on-secondary-fixed-variant": "#39485a",
+          "surface": "#131316",
+          "inverse-surface": "#e4e1e6",
+          "primary": "#c0c1ff",
+          "inverse-on-surface": "#303033"
+        },
+        borderRadius: {
+          "DEFAULT": "0.125rem",
+          "lg": "0.375rem",
+          "xl": "0.5rem",
+          "full": "0.75rem"
+        },
+        spacing: {
+          "space-xs": "0.375rem",
+          "space-sm": "0.75rem",
+          "space-md": "1.25rem",
+          "space-lg": "2rem",
+          "space-xl": "3.5rem",
+          "gutter": "1rem",
+          "margin": "1.25rem"
+        },
+        fontFamily: {
+          "body-md": ["Inter", "sans-serif"],
+          "body-sm": ["Inter", "sans-serif"],
+          "label-sm": ["Inter", "sans-serif"],
+          "label-md": ["Inter", "sans-serif"],
+          "headline-serif": ["Newsreader", "Georgia", "serif"]
+        }
+      }
+    }
+  }
+</script><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head><body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen selection:bg-secondary-container selection:text-on-surface"><header class="fixed top-0 inset-x-0 z-50 bg-surface/85 backdrop-blur-md pt-safe border-b border-outline-variant/30"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-2.5 shrink-0"><img alt="AudioInk Brand Mark" class="h-7 w-auto object-contain opacity-90" src="https://lh3.googleusercontent.com/aida/AEtjO1VtTQVuSIT-I6vYFYU3WdvgwgVecayPKslK8U8uT2zWwytVRepUXFt6zZ3nIJqv9zhn1G4RfTlXVu_6dr3ahfHRpyPfsh4OJB1QNkBvydb1QjYRRTzZqv-7n0yB1xsr2EuwjLuviH10-tL9Y0gmNl4RRsJp49H_2iolf4cDrbMmUojcL2QJjcWkE4ijlfw6PKzkxIFOl65rHtozhvyCoTiz0uNT_U6ci4ddg2Pkqi6F6EHda5p8JwCydPQ"/><div class="flex flex-col"><span class="font-headline-serif italic text-lg tracking-normal text-on-surface leading-tight">AudioInk</span><span class="text-[11px] text-outline font-medium tracking-wide uppercase">Library</span></div></div><div class="flex items-center gap-2"><button aria-label="Search note" class="w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-[20px]">search</span></button><div class="w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant/50 flex items-center justify-center text-on-surface text-sm font-medium"><span>P</span></div></div></div></header><main class="flex flex-col relative w-full px-margin pt-16 pb-24 bg-surface min-h-screen"><div class="flex flex-col w-full max-w-xl mx-auto space-y-7 pt-4">
+<!-- Editorial Header Block -->
+<div class="flex flex-col space-y-4">
+<!-- Category & Understated Verification Badge -->
+<div class="flex items-center justify-between text-xs text-outline">
+<div class="flex items-center gap-2">
+<span class="font-medium text-secondary tracking-wide uppercase text-[11px]">Philosophy &amp; AI</span>
+<span class="text-outline-variant">•</span>
+<span>Note #084</span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-surface-container-high text-secondary border border-outline-variant/40 text-[11px] font-medium">
+<span class="material-symbols-outlined text-[13px] text-secondary">verified</span>
+<span>Verified against audio</span>
+</div>
+</div>
+<!-- Elegant Serif Title -->
+<h1 class="font-headline-serif text-3xl font-medium text-on-surface tracking-tight leading-snug">
+      Lecture: Epistemology &amp; Decision Systems
+    </h1>
+<!-- Metadata & Actions Row -->
+<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pt-1 border-b border-outline-variant/25 pb-4">
+<div class="flex items-center gap-2 text-xs text-outline font-normal">
+<span class="text-on-surface-variant font-medium">Oct 24, 2025</span>
+<span>•</span>
+<span>4 min read</span>
+<span>•</span>
+<span>Seminar Audio</span>
+</div>
+<!-- Minimalist subtle action buttons -->
+<div class="flex items-center gap-1.5">
+<button class="px-2.5 py-1 rounded bg-surface-container-high hover:bg-surface-container-highest text-on-surface text-xs font-medium border border-outline-variant/30 flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[13px] text-outline">code</span>
+        .md
+      </button>
+<button class="px-2.5 py-1 rounded bg-surface-container-high hover:bg-surface-container-highest text-on-surface text-xs font-medium border border-outline-variant/30 flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[13px] text-outline">picture_as_pdf</span>
+        PDF
+      </button>
+<button class="px-2.5 py-1 rounded bg-surface-container-high hover:bg-surface-container-highest text-on-surface text-xs font-medium border border-outline-variant/30 flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[13px] text-outline">notes</span>
+        Text
+      </button>
+<button class="ml-1 p-1.5 rounded hover:bg-surface-container-highest text-outline hover:text-on-surface transition-colors" title="Copy Memo">
+<span class="material-symbols-outlined text-[17px]">content_copy</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Subtle Editorial Tab Pill Switcher -->
+<div class="flex border-b border-outline-variant/30 gap-6 text-sm">
+<button class="pb-2.5 text-on-surface font-medium border-b-2 border-primary -mb-px">
+      Reading Note
+    </button>
+<button class="pb-2.5 text-outline hover:text-on-surface-variant transition-colors">
+      Transcript
+    </button>
+<button class="pb-2.5 text-outline hover:text-on-surface-variant transition-colors">
+      Citations (6)
+    </button>
+</div>
+<!-- Section: Executive Summary -->
+<section class="flex flex-col space-y-3">
+<div class="flex items-baseline justify-between border-b border-outline-variant/20 pb-1.5">
+<h2 class="font-headline-serif text-xl font-normal text-on-surface">Summary</h2>
+<span class="text-xs text-outline">2 points</span>
+</div>
+<div class="space-y-3.5 pt-1 text-on-surface/90 text-[15px] leading-relaxed">
+<p class="relative pl-3 border-l border-outline-variant/50">
+        Empiricist epistemologies inherently falter when treating sensory correlation as deterministic causal truth
+        <button class="citation-pill inline-flex items-center px-1.5 py-0.5 mx-1 rounded bg-secondary-container/50 hover:bg-secondary-container text-secondary text-xs font-medium transition-colors" data-ref="1">
+          [1]
+        </button>.
+      </p>
+<p class="relative pl-3 border-l border-outline-variant/50">
+        Humean induction demonstrates that historical frequency provides probabilistic bias rather than formal logical necessity
+        <button class="citation-pill inline-flex items-center px-1.5 py-0.5 mx-1 rounded bg-secondary-container/50 hover:bg-secondary-container text-secondary text-xs font-medium transition-colors" data-ref="2">
+          [2]
+        </button>.
+      </p>
+</div>
+</section>
+<!-- Section: Key Concepts -->
+<section class="flex flex-col space-y-3">
+<div class="flex items-baseline justify-between border-b border-outline-variant/20 pb-1.5">
+<h2 class="font-headline-serif text-xl font-normal text-on-surface">Key Concepts</h2>
+<span class="text-xs text-outline">3 definitions</span>
+</div>
+<div class="space-y-4 pt-1">
+<div class="p-4 rounded-lg bg-surface-container-low border border-outline-variant/25 flex flex-col space-y-1.5">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-serif text-base font-medium text-on-surface">Classical Foundationalism</h3>
+<button class="citation-pill inline-flex items-center px-1.5 py-0.5 rounded bg-secondary-container/50 hover:bg-secondary-container text-secondary text-xs font-medium transition-colors" data-ref="1">
+            [1]
+          </button>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed font-normal">
+          The doctrine that epistemic justification depends upon a foundation of basic, non-inferential perceptual premises resisting further rational regressive inquiry.
+        </p>
+</div>
+<div class="p-4 rounded-lg bg-surface-container-low border border-outline-variant/25 flex flex-col space-y-1.5">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-serif text-base font-medium text-on-surface">Problem of Induction</h3>
+<div class="inline-flex gap-1.5">
+<button class="citation-pill inline-flex items-center px-1.5 py-0.5 rounded bg-secondary-container/50 hover:bg-secondary-container text-secondary text-xs font-medium transition-colors" data-ref="2">
+              [2]
+            </button>
+<button class="citation-pill inline-flex items-center px-1.5 py-0.5 rounded bg-secondary-container/70 text-secondary text-xs font-medium transition-colors" data-ref="3">
+              [3]
+            </button>
+</div>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed font-normal">
+          Projection of constant conjunction into universal physical law without deductive warrant, mistaking epistemic habit for ontological invariability.
+        </p>
+</div>
+<div class="p-4 rounded-lg bg-surface-container-low border border-outline-variant/25 flex flex-col space-y-1.5">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-serif text-base font-medium text-on-surface">Heuristic Decoupling</h3>
+<button class="citation-pill inline-flex items-center px-1.5 py-0.5 rounded bg-secondary-container/50 hover:bg-secondary-container text-secondary text-xs font-medium transition-colors" data-ref="4">
+            [4]
+          </button>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed font-normal">
+          The operational mandate to strictly isolate Bayesian posterior probability distributions from psychological conviction inside machine-augmented inference loops.
+        </p>
+</div>
+</div>
+</section>
+<!-- Section: Action Items -->
+<section class="flex flex-col space-y-3">
+<div class="flex items-baseline justify-between border-b border-outline-variant/20 pb-1.5">
+<h2 class="font-headline-serif text-xl font-normal text-on-surface">Action Items</h2>
+<span class="text-xs text-outline">2 items</span>
+</div>
+<div class="space-y-2 pt-1">
+<label class="flex items-start gap-3 p-3.5 rounded-lg bg-surface-container-low border border-outline-variant/25 cursor-pointer hover:bg-surface-container transition-colors">
+<input class="mt-0.5 h-4 w-4 rounded border-outline-variant text-primary focus:ring-0 focus:ring-offset-0 bg-surface-container-highest cursor-pointer" type="checkbox"/>
+<div class="flex flex-col">
+<span class="text-sm font-medium text-on-surface">Formalize Humean prior bounds in system architecture</span>
+<span class="text-xs text-outline mt-0.5">Compute bounds for inference nodes under epistemic drift</span>
+</div>
+</label>
+<label class="flex items-start gap-3 p-3.5 rounded-lg bg-surface-container-low border border-outline-variant/25 cursor-pointer hover:bg-surface-container transition-colors">
+<input class="mt-0.5 h-4 w-4 rounded border-outline-variant text-primary focus:ring-0 focus:ring-offset-0 bg-surface-container-highest cursor-pointer" type="checkbox"/>
+<div class="flex flex-col">
+<span class="text-sm font-medium text-on-surface">Review Chapter 4 of Treatise of Human Nature</span>
+<span class="text-xs text-outline mt-0.5">Preparation for Thursday graduate seminar breakout session</span>
+</div>
+</label>
+</div>
+</section>
+<!-- Audio Citation Card (Calm Serene Design) -->
+<section class="pt-2">
+<div class="rounded-xl bg-surface-container-low border border-outline-variant/35 shadow-sm p-4 space-y-4">
+<!-- Card Subhead -->
+<div class="flex items-center justify-between text-xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">graphic_eq</span>
+<span class="font-medium text-on-surface">Audio Citation</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-secondary text-[11px] font-medium border border-outline-variant/40">[3]</span>
+</div>
+<div class="flex items-center gap-2 text-outline">
+<span class="font-mono text-[11px]">02:18</span>
+<button aria-label="Dismiss citation" class="p-1 rounded hover:bg-surface-container text-outline hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[15px]">close</span>
+</button>
+</div>
+</div>
+<!-- Quoted Text -->
+<div class="px-3.5 py-2.5 rounded bg-surface-container border border-outline-variant/20 font-headline-serif italic text-on-surface/90 text-sm leading-relaxed">
+        “...constant conjunction does not entail logical necessity. We observe repetitions, yet project causality into nature itself...”
+      </div>
+<!-- Minimalist Uniform Waveform Scrubber -->
+<div class="space-y-1.5">
+<div class="flex justify-between text-[11px] text-outline">
+<span>Excerpt snippet</span>
+<span>02:18 / 02:35</span>
+</div>
+<div class="h-8 w-full bg-surface-container rounded px-2.5 flex items-center justify-between gap-1 overflow-hidden">
+<div class="w-1 h-2 rounded-full bg-outline-variant/50"></div>
+<div class="w-1 h-3 rounded-full bg-outline-variant/50"></div>
+<div class="w-1 h-5 rounded-full bg-secondary"></div>
+<div class="w-1 h-6 rounded-full bg-secondary"></div>
+<div class="w-1 h-7 rounded-full bg-secondary"></div>
+<div class="w-1 h-4 rounded-full bg-secondary"></div>
+<div class="w-1 h-5 rounded-full bg-secondary"></div>
+<div class="w-1 h-7 rounded-full bg-secondary"></div>
+<div class="w-1 h-5 rounded-full bg-secondary"></div>
+<div class="w-1 h-4 rounded-full bg-secondary"></div>
+<div class="w-1 h-6 rounded-full bg-secondary"></div>
+<div class="w-1 h-5 rounded-full bg-secondary"></div>
+<div class="w-1 h-7 rounded-full bg-secondary"></div>
+<div class="w-1 h-6 rounded-full bg-secondary"></div>
+<div class="w-1 h-4 rounded-full bg-secondary"></div>
+<div class="w-1 h-3 rounded-full bg-outline-variant/60"></div>
+<div class="w-1 h-5 rounded-full bg-outline-variant/60"></div>
+<div class="w-1 h-6 rounded-full bg-outline-variant/60"></div>
+<div class="w-1 h-4 rounded-full bg-outline-variant/60"></div>
+<div class="w-1 h-2 rounded-full bg-outline-variant/50"></div>
+<div class="w-1 h-3 rounded-full bg-outline-variant/50"></div>
+<div class="w-1 h-5 rounded-full bg-outline-variant/50"></div>
+<div class="w-1 h-3 rounded-full bg-outline-variant/50"></div>
+<div class="w-1 h-2 rounded-full bg-outline-variant/40"></div>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex items-center justify-between pt-0.5">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest border border-outline-variant/40 text-on-surface text-xs font-medium flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[17px] text-secondary">play_arrow</span>
+<span>Play audio quote</span>
+</button>
+<span class="text-xs text-outline">Lead Instructor • 17s</span>
+</div>
+</div>
+</section>
+</div>
+</main><nav class="fixed bottom-0 inset-x-0 z-50 pb-safe bg-surface/90 backdrop-blur-xl border-t border-outline-variant/30"><div class="flex justify-around items-center h-16 px-space-xs"><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] gap-0.5 text-on-surface-variant hover:text-on-surface transition-all" data-path="record" href="#"><span class="material-symbols-outlined text-[22px]">mic</span><span class="text-[11px] font-medium tracking-tight">Record</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] gap-0.5 text-on-surface-variant hover:text-on-surface transition-all" data-path="transcript" href="#"><span class="material-symbols-outlined text-[22px]">graphic_eq</span><span class="text-[11px] font-medium tracking-tight">Transcript</span></a><a aria-current="page" class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] gap-0.5 transition-all text-primary font-medium" data-path="notes" href="#"><span class="material-symbols-outlined text-[22px]">article</span><span class="text-[11px] font-medium tracking-tight">Notes</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] gap-0.5 text-on-surface-variant hover:text-on-surface transition-all" data-path="personas" href="#"><span class="material-symbols-outlined text-[22px]">tune</span><span class="text-[11px] font-medium tracking-tight">Personas</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] gap-0.5 text-on-surface-variant hover:text-on-surface transition-all" data-path="vault" href="#"><span class="material-symbols-outlined text-[22px]">encrypted</span><span class="text-[11px] font-medium tracking-tight">Vault</span></a></div></nav></body></html>
