@@ -20,7 +20,15 @@
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
       "predictiveBackGestureEnabled": false,
-      "package": "com.anonymous.audioink"
+      "package": "com.anonymous.audioink",
+      "permissions": [
+        "android.permission.USE_BIOMETRIC",
+        "android.permission.USE_FINGERPRINT",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.MODIFY_AUDIO_SETTINGS",
+        "android.permission.FOREGROUND_SERVICE",
+        "android.permission.FOREGROUND_SERVICE_MICROPHONE"
+      ]
     },
     "web": {
       "output": "static",
@@ -41,7 +49,10 @@
         {
           "android": {
             "minSdkVersion": 26,
-            "buildArchs": ["arm64-v8a", "x86_64"]
+            "buildArchs": [
+              "arm64-v8a",
+              "x86_64"
+            ]
           },
           "ios": {
             "deploymentTarget": "17.0"
@@ -75,6 +86,13 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "88994e6b-c51e-48fd-b6d5-4ab641d2cc93"
+      }
+    },
+    "owner": "fayaj"
   }
 }
